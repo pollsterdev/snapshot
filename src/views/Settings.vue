@@ -368,7 +368,8 @@ export default {
         filters: {},
         avatar: ''
       },
-      networks
+      networks,
+      approved: false,
     };
   },
   computed: {
@@ -408,27 +409,32 @@ export default {
       const uri = await getSpaceUri(this.key);
       this.currentContenthash = uri;
       const [protocolType, decoded] = uri.split('://');
-      let space = clone(this.app.spaces?.[this.key]);
-      if (!space) space = await uriGet(gateway, decoded, protocolType);
-      delete space.key;
-      delete space._activeProposals;
-      space.strategies = space.strategies || [];
-      space.plugins = space.plugins || {};
-      space.filters = space.filters || {};
-      this.approved = space.approved
-      delete space.approved
+      const space = clone(this.app.spaces?.[this.key]);
 
-      this.currentSettings = clone(space);
-      this.form = space;
+      // if (!space) space = await uriGet(gateway, decoded, protocolType);
+      if (space) {
+        delete space.key;
+        delete space._activeProposals;
+        space.strategies = space.strategies || [];
+        space.plugins = space.plugins || {};
+        space.filters = space.filters || {};
+        this.approved = space.approved
+        delete space.approved
+
+        this.currentSettings = clone(space);
+        this.form = space;
+      }
     } catch (e) {
       console.log(e);
     }
+
     if (this.from) {
       const from = clone(this.app.spaces[this.from]);
       delete from.key;
       delete from._activeProposals;
       this.form = from;
     }
+
     this.loaded = true;
   },
   methods: {
