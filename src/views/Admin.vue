@@ -41,8 +41,7 @@
 </template>
 
 <script>
-import { useStore, mapActions } from 'vuex'
-import { formatSpace } from '@/helpers/utils'
+import { mapActions } from 'vuex'
 
 const hubUrl = process.env.VUE_APP_HUB_URL
 
@@ -96,7 +95,7 @@ export default {
   },
 
   watch: {
-    account: async function (newValue, oldValue) {
+    account: async function (newValue) {
       if (!newValue) return
 
       this.isAdmin = await checkIsAdmin({ account: newValue })
@@ -115,7 +114,6 @@ export default {
 
     async approve (space) {
       try {
-        const spaces = this.$store.state.app.spaces
         const account = this.$store.state.web3.account
 
         await approveSpace({ space, account })
@@ -126,7 +124,11 @@ export default {
         await this.$store.dispatch('getSpaces')
       } catch (err) {
         console.error(err)
-        this.notify(['red', 'Sorry there was a problem approving the space, please try again.'])
+
+        this.notify([
+          'red',
+          'Sorry there was a problem approving the space, please try again.'
+        ])
       }
     },
 

@@ -325,12 +325,12 @@ import { getAddress } from '@ethersproject/address';
 import { validateSchema } from '@snapshot-labs/snapshot.js/src/utils';
 import schemas from '@snapshot-labs/snapshot.js/src/schemas';
 import networks from '@snapshot-labs/snapshot.js/src/networks.json';
-import gateways from '@snapshot-labs/snapshot.js/src/gateways.json';
+// import gateways from '@snapshot-labs/snapshot.js/src/gateways.json';
 import { clone } from '@/helpers/utils';
-import { getSpaceUri, uriGet } from '@/helpers/ens';
+import { getSpaceUri } from '@/helpers/ens';
 import defaults from '@/locales/default';
 
-const gateway = process.env.VUE_APP_IPFS_GATEWAY || gateways[0];
+// const gateway = process.env.VUE_APP_IPFS_GATEWAY || gateways[0];
 
 export default {
   setup() {
@@ -376,7 +376,6 @@ export default {
     validate() {
       if (this.form.terms === '') delete this.form.terms;
       if (this.form.avatar === '') delete this.form.avatar
-      const space = JSON.parse(JSON.stringify(schemas.space))
       return validateSchema(schemas.space, this.form);
     },
     isValid() {
@@ -408,7 +407,7 @@ export default {
     try {
       const uri = await getSpaceUri(this.key);
       this.currentContenthash = uri;
-      const [protocolType, decoded] = uri.split('://');
+      // const [protocolType, decoded] = uri.split('://');
       const space = clone(this.app.spaces?.[this.key]);
 
       // if (!space) space = await uriGet(gateway, decoded, protocolType);
