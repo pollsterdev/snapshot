@@ -113,7 +113,7 @@
             />
           </div>
           <div class="mb-1">
-            <b>{{ $t('snapshot') }}</b>
+            <b>{{ $t('pollster') }}</b>
             <a
               :href="_explorer(space.network, proposal.snapshot, 'block')"
               target="_blank"

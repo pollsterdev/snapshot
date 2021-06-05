@@ -21,7 +21,7 @@ export default {
   props: ['network'],
   methods: {
     getLogoUrl(key) {
-      return `https://raw.githubusercontent.com/snapshot-labs/snapshot.js/master/src/networks/${key}.png`;
+      return `https://raw.githubusercontent.com/pollsterdev/snapshot.js/master/src/networks/${key}.png`;
     }
   }
 };

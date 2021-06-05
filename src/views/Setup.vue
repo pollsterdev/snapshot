@@ -23,7 +23,7 @@
           <a
             class="d-block py-1 mr-n2"
             target="_blank"
-            href="https://docs.snapshot.org/spaces/create"
+            href="https://app.ens.domains/"
           >
             <Icon name="info" size="24" class="text-gray p-1" />
           </a>

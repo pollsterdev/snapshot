@@ -11,10 +11,10 @@ export async function uriGet(
   protocolType = 'ipfs'
 ) {
   key = key.replace(
-    'storage.snapshot.page',
-    'storageapi.fleek.co/snapshot-team-bucket'
+    'storage.snapshot.page', // TODO: ???
+    'storageapi.fleek.co/snapshot-team-bucket' // TODO: ???
   );
-  if (key.includes('storageapi.fleek.co')) protocolType = 'https';
+  if (key.includes('storageapi.fleek.co')) protocolType = 'https'; // TODO: ???
   let url = `https://${gateway}/${protocolType}/${key}`;
   if (['https', 'http'].includes(protocolType))
     url = `${protocolType}://${key}`;
@@ -41,7 +41,7 @@ export async function getSpaceUriFromTextRecord(id) {
     const ensAddress = '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e';
     const ENS = (await get()).default;
     const ens = new ENS({ provider: getProvider('1'), ensAddress });
-    uri = await ens.name(id).getText('snapshot');
+    uri = await ens.name(id).getText('pollster');
   } catch (e) {
     console.log('getSpaceUriFromTextRecord failed', id, e);
   }

@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     getLogoUrl(plugin) {
-      return `https://raw.githubusercontent.com/snapshot-labs/snapshot.js/master/src/plugins/${plugin}/logo.png`;
+      return `https://raw.githubusercontent.com/pollsterdev/snapshot.js/master/src/plugins/${plugin}/logo.png`;
     }
   }
 };

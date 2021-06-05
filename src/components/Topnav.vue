@@ -19,7 +19,7 @@
               <span
                 :class="space && 'hide-sm'"
                 class="mr-1"
-                v-text="'snapshot'"
+                v-text="'pollster'"
               />
               <span v-if="space" class="pl-1 pr-2 text-gray" v-text="'/'" />
             </router-link>
@@ -130,7 +130,7 @@ export default {
   methods: {
     ...mapActions(['login']),
     setTitle() {
-      document.title = this.space.name ? this.space.name : 'Snapshot';
+      document.title = this.space.name ? this.space.name : 'Pollster';
     },
     async handleLogin(connector) {
       this.modalAccountOpen = false;

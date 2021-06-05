@@ -174,13 +174,13 @@
               <span class="text-red">
                 {{ inputError('strategies') }}&nbsp;</span
               >
-              <a
-                href="https://docs.snapshot.org/spaces/create#strategies"
-                target="_blank"
-                rel="noopener noreferrer"
-                >{{ $t('learnMore') }}
-                <Icon name="external-link" />
-              </a>
+              <!-- <a -->
+              <!--   href="https://docs.snapshot.org/spaces/create#strategies" -->
+              <!--   target="_blank" -->
+              <!--   rel="noopener noreferrer" -->
+              <!--   >{{ $t('learnMore') }} -->
+              <!--   <Icon name="external-link" /> -->
+              <!-- </a> -->
             </Block>
             <UiButton @click="handleAddStrategy" class="d-block width-full">
               {{ $t('settings.addStrategy') }}

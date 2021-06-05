@@ -2,7 +2,7 @@
   <Block>
     <div class="d-flex flex-items-center mb-1">
       <a
-        :href="`https://github.com/snapshot-labs/snapshot.js/tree/master/src/plugins/${plugin.key}`"
+        :href="`https://github.com/pollsterdev/snapshot.js/tree/master/src/plugins/${plugin.key}`"
         target="_blank"
         class="d-flex"
       >
@@ -37,7 +37,7 @@ export default {
   props: ['plugin'],
   methods: {
     getLogoUrl(key) {
-      return `https://raw.githubusercontent.com/snapshot-labs/snapshot.js/master/src/plugins/${key}/logo.png`;
+      return `https://raw.githubusercontent.com/pollsterdev/snapshot.js/master/src/plugins/${key}/logo.png`;
     }
   }
 };

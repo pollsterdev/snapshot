@@ -21,7 +21,7 @@
           </span>
         </div>
         <div class="d-flex">
-          <span v-text="$t('snapshot')" class="flex-auto text-gray mr-1" />
+          <span v-text="$t('pollster')" class="flex-auto text-gray mr-1" />
           <a
             :href="_explorer(space.network, proposal.snapshot, 'block')"
             target="_blank"
@@ -44,14 +44,14 @@
             {{ _n(totalScore) }}
             {{ _shorten(space.symbol, 'symbol') }}
           </span>
-          <a
-            v-if="totalScore === 0"
-            target="_blank"
-            href="https://docs.snapshot.org/faq#why-i-cant-vote"
-            class="d-inline-block mt-n1 ml-1"
-          >
-            <Icon name="info" size="24" class="text-gray" />
-          </a>
+          <!-- <a -->
+          <!--   v-if="totalScore === 0" -->
+          <!--   target="_blank" -->
+          <!--   href="https://docs.snapshot.org/faq#why-i-cant-vote" -->
+          <!--   class="d-inline-block mt-n1 ml-1" -->
+          <!-- > -->
+          <!--   <Icon name="info" size="24" class="text-gray" /> -->
+          <!-- </a> -->
         </div>
       </div>
     </div>

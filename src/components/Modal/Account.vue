@@ -114,7 +114,7 @@ export default {
       connectors,
       step: null,
       path:
-        'https://raw.githubusercontent.com/snapshot-labs/lock/master/connectors/assets'
+        'https://raw.githubusercontent.com/pollsterdev/lock/master/connectors/assets'
     };
   },
   watch: {

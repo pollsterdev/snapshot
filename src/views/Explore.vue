@@ -8,15 +8,15 @@
           </UiButton>
         </div>
         <div class="ml-3 text-right hide-sm col-lg-4">
-          {{ _n(items.length) }} {{ resultsStr }}
-          <a
-            v-if="buttonStr"
-            href="https://discord.snapshot.org"
-            target="_blank"
-            class="hide-md ml-3"
-          >
-            <UiButton>{{ buttonStr }}</UiButton>
-          </a>
+          <!-- {{ _n(items.length) }} {{ resultsStr }} -->
+          <!-- <a -->
+          <!--   v-if="buttonStr" -->
+          <!--   href="https://discord.snapshot.org" -->
+          <!--   target="_blank" -->
+          <!--   class="hide-md ml-3" -->
+          <!-- > -->
+          <!--   <UiButton>{{ buttonStr }}</UiButton> -->
+          <!-- </a> -->
         </div>
       </Container>
     </div>
