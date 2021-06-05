@@ -222,7 +222,14 @@ export default {
     const totalScore = ref(0);
     const scores = ref([]);
 
-    const space = computed(() => store.state.app.spaces[key]);
+    const space = computed(() => {
+      const spaces = Object.fromEntries(
+        Object.entries(store.state.app.spaces)
+          .filter(x => x[1].approved)
+      )
+
+      return spaces[key]
+    })
     const web3Account = computed(() => store.state.web3.account);
 
     const { modalAccountOpen } = useModal();

@@ -86,7 +86,14 @@ export default {
       return this.domain || this.$route.params.key;
     },
     space() {
-      return this.app.spaces[this.key];
+      if (!this.app.spaces) return
+
+      const spaces = Object.fromEntries(
+        Object.entries(this.app.spaces)
+          .filter(x => x[1].approved)
+      )
+
+      return spaces[this.key]
     },
     states() {
       const states = [

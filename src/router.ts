@@ -11,6 +11,7 @@ import Explore from '@/views/Explore.vue';
 import Strategy from '@/views/Strategy.vue';
 import Delegate from '@/views/Delegate.vue';
 import Timeline from '@/views/Timeline.vue';
+import Admin from '@/views/Admin.vue';
 
 const domainName = window.location.hostname;
 
@@ -67,6 +68,13 @@ const routes: any[] = [
     name: 'home',
     component: domains[domainName] ? Proposals : Home
   },
+
+  {
+    path: '/admin',
+    name: 'admin',
+    component: Admin
+  },
+
   { path: '/*', name: 'error-404', beforeEnter: (to, from, next) => next('/') }
 ];
 

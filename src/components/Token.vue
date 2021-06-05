@@ -16,17 +16,7 @@ export default {
   },
   computed: {
     url() {
-      const file = this.symbolIndex
-        ? this.symbolIndex === 'space'
-          ? 'space'
-          : `logo${this.symbolIndex}`
-        : 'logo';
-      const url = this.space.avatar
-        ? this.space.avatar
-        : `https://raw.githubusercontent.com/snapshot-labs/snapshot-spaces/master/spaces/${this.spaceId}/${file}.png`;
-      return `https://worker.snapshot.org/mirror?img=${encodeURIComponent(
-        url
-      )}`;
+      return this.space.avatar
     },
     spaceAddress() {
       if (this.spaceId) return formatBytes32String(this.spaceId.slice(0, 24));

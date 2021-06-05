@@ -102,13 +102,15 @@ export default {
           };
         })
         .filter(space => !space.private);
-      return orderBy(list, ['favorite', 'spotlight'], ['desc', 'asc']).filter(
-        space =>
-          (networkFilter
-            ? space.network === networkFilter.toLowerCase()
-            : true) &&
-          JSON.stringify(space).toLowerCase().includes(q.toLowerCase())
-      );
+      return orderBy(list, ['favorite', 'spotlight'], ['desc', 'asc'])
+        .filter(x => x.approved)
+        .filter(
+          space =>
+            (networkFilter
+              ? space.network === networkFilter.toLowerCase()
+              : true) &&
+            JSON.stringify(space).toLowerCase().includes(q.toLowerCase())
+        );
     });
 
     // Get number of unseen proposals

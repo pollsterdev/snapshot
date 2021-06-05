@@ -43,10 +43,9 @@ const actions = {
   getSpaces: async ({ commit }) => {
     let spaces: any = await client.getSpaces();
     spaces = Object.fromEntries(
-      Object.entries(spaces).map(space => [
-        space[0],
-        formatSpace(space[0], space[1])
-      ])
+      Object
+        .entries(spaces)
+        .map(space => [space[0], formatSpace(space[0], space[1])])
     );
     commit('SET', { spaces });
     return spaces;

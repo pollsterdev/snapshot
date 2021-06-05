@@ -32,8 +32,7 @@
           <a
             :href="`https://app.ens.domains/name/${key}`"
             target="_blank"
-            class="mb-2 d-block"
-          >
+            class="mb-2 d-block">
             <UiButton
               :class="{ 'button--submit': !isOwner && !isAdmin }"
               class="button-outline width-full"
@@ -270,6 +269,15 @@
     </template>
     <template v-if="(loaded && isOwner) || (loaded && isAdmin)" #sidebar-right>
       <Block :title="$t('actions')">
+        <a
+          v-if="!approved"
+          href="https://forms.gle/brPpcP6M8VJ6rCmF9"
+          target="_blank">
+          <UiButton class="d-block width-full mb-2">
+            Get Approval
+          </UiButton>
+        </a>
+
         <UiButton @click="handleReset" class="d-block width-full mb-2">
           {{ $t('reset') }}
         </UiButton>
@@ -357,7 +365,8 @@ export default {
       form: {
         strategies: [],
         plugins: {},
-        filters: {}
+        filters: {},
+        avatar: ''
       },
       networks
     };
@@ -365,17 +374,23 @@ export default {
   computed: {
     validate() {
       if (this.form.terms === '') delete this.form.terms;
+      if (this.form.avatar === '') delete this.form.avatar
+      const space = JSON.parse(JSON.stringify(schemas.space))
       return validateSchema(schemas.space, this.form);
     },
     isValid() {
-      return !this.loading && this.web3.account && this.validate === true;
+      const loading = this.loading
+      const account = this.web3.account
+      const valid = this.validate
+
+      return !loading && account && valid === true
     },
     contenthash() {
       const key = encodeURIComponent(this.key);
       const address = this.web3.account
         ? getAddress(this.web3.account)
         : '<your-address>';
-      return `ipns://storage.snapshot.page/registry/${address}/${key}`;
+      return `ipns://storage.pollster.page/registry/${address}/${key}`;
     },
     isOwner() {
       return this.currentContenthash === this.contenthash;
@@ -400,6 +415,9 @@ export default {
       space.strategies = space.strategies || [];
       space.plugins = space.plugins || {};
       space.filters = space.filters || {};
+      this.approved = space.approved
+      delete space.approved
+
       this.currentSettings = clone(space);
       this.form = space;
     } catch (e) {
